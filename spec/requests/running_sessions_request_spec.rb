@@ -27,7 +27,7 @@ RSpec.describe "RunningSessions", type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find user/)
+        expect(response.body).to match(/Couldn't find User/)
       end
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe "RunningSessions", type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find running_session/)
+        expect(response.body).to match(/Couldn't find RunningSession/)
       end
     end
   end
@@ -95,8 +95,8 @@ RSpec.describe "RunningSessions", type: :request do
       end
 
       it 'updates the running_session' do
-        updated_running_session = running_session.find(id)
-        expect(updated_running_session.distance).to match(/4000/)
+        updated_running_session = RunningSession.find(id)
+        expect(updated_running_session.distance).to match(4000)
       end
     end
 
@@ -108,7 +108,7 @@ RSpec.describe "RunningSessions", type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find running_session/)
+        expect(response.body).to match(/Couldn't find RunningSession/)
       end
     end
   end
