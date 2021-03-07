@@ -14,8 +14,9 @@ class RunningSessionsController < ApplicationController
 
   # POST /users/:user_id/running_sessions
   def create
+    fill_data
     @user.running_sessions.create!(running_session_params)
-    json_response(@user, :created)
+    json_response(@user.running_sessions.first, :created)
   end
 
   # PUT /users/:user_id/running_sessions/:id
@@ -33,7 +34,7 @@ class RunningSessionsController < ApplicationController
   private
 
   def running_session_params
-    params.permit(:distance, :datetime, :avg_pace, :avg_speed)
+    params.permit(:distance, :duration, :start_time, :finish_time, :avg_speed, :avg_pace)
   end
 
   def set_user

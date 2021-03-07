@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2021_03_04_160730) do
 
   create_table "running_sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "distance"
+    t.float "distance"
     t.bigint "start_time"
     t.bigint "finish_time"
-    t.integer "duration"
+    t.float "duration"
     t.float "avg_pace"
     t.float "avg_speed"
     t.datetime "created_at", precision: 6, null: false
