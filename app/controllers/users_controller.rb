@@ -39,6 +39,6 @@ class UsersController < ApplicationController
   end
 
   def allow_access(res)
-    res.headers['X-Access-Control-Allow-Origin'] = '*'
+    res.headers['X-ACCESS-CONTROL-ALLOW-ORIGIN'] = '*'
   end
 end
