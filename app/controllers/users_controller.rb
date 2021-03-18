@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  before_action :allow_access
+
 # restful
   def index
     @users = User.all
@@ -34,5 +36,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def allow_access
+    response.headers['Access-Control-Allow-Origin'] = '*'
   end
 end
