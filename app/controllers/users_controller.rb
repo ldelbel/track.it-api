@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :allow_access
 
 # restful
   def index
@@ -14,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    allow_access(response)
     json_response(@user)
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def allow_access
-    response.headers['Access-Control-Allow-Origin'] = '*'
+  def allow_access(res)
+    res.headers['Access-Control-Allow-Origin'] = '*'
   end
 end
