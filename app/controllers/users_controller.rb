@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    allow_access(response)
+    json_response(@user)
+  end
+
+  def find
+    @user = User.find_by(name: params[:name]);
     json_response(@user)
   end
 
@@ -36,9 +40,5 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def allow_access(res)
-    res.headers['X-ACCESS-CONTROL-ALLOW-ORIGIN'] = '*'
   end
 end
