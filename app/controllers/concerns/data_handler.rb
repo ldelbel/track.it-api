@@ -7,7 +7,7 @@ module DataHandler
   private
 
   def calculate_speed_kms_per_hour(distance,duration)
-    distance / duration
+    duration.zero? ? 0 : distance / duration
   end
 
   def calculate_pace_hours_per_km(distance,duration)
