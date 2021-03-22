@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_160730) do
   create_table "running_sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.float "distance"
+    t.float "goal"
     t.bigint "start_time"
-    t.bigint "finish_time"
     t.float "duration"
     t.float "avg_pace"
     t.float "avg_speed"

@@ -3,8 +3,8 @@ class CreateRunningSessions < ActiveRecord::Migration[6.1]
     create_table :running_sessions do |t|
       t.references :user, null: false, foreign_key: true
       t.float :distance
+      t.float :goal
       t.bigint :start_time
-      t.bigint :finish_time
       t.float :duration
       t.float :avg_pace
       t.float :avg_speed

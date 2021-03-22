@@ -34,7 +34,7 @@ class RunningSessionsController < ApplicationController
   private
 
   def running_session_params
-    params.permit(:distance, :duration, :start_time, :finish_time, :avg_speed, :avg_pace)
+    params.permit(:distance, :duration, :start_time, :avg_speed, :avg_pace)
   end
 
   def set_user
