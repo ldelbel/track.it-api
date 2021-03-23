@@ -14,7 +14,7 @@ class RunningSessionsController < ApplicationController
 
   # POST /users/:user_id/running_sessions
   def create
-    fill_data
+    # fill_data
     @user.running_sessions.create!(running_session_params)
     json_response(@user.running_sessions.first, :created)
   end
