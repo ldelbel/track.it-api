@@ -1,6 +1,4 @@
 
-require 'factory_bot_rails'
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -10,4 +8,21 @@ require 'factory_bot_rails'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 example = User.create!(name: 'example');
-FactoryBot.create_list(:running_session,30,user_id: example.id)
+
+30.times do |i|
+    start_time = (Time.now - i.day).to_i * 1000
+    duration = rand(0.5..2.0).round(2)
+    distance = rand(1.0..6.0).round(2)
+    goal = distance + rand(0.0..1.0).round(2)
+    avg_speed = (distance / duration).round(2)
+    avg_pace = (duration / distance).round(2)
+    
+    example.running_sessions.create!(
+        distance: distance,
+        start_time: start_time,
+        duration: duration,
+        goal: goal,
+        avg_speed: avg_speed,
+        avg_pace: avg_pace
+    )
+end 
