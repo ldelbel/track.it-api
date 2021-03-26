@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "RunningSessions", type: :request do
+RSpec.describe 'RunningSessions', type: :request do
   let!(:user) { create(:user) }
   let!(:running_sessions) { create_list(:running_session, 20, user_id: user.id) }
   let(:user_id) { user.id }
@@ -122,4 +122,3 @@ RSpec.describe "RunningSessions", type: :request do
     end
   end
 end
-

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-# restful
+  # restful
   def index
     @users = User.all
     json_response(@users)
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def find
-    @user = User.find_by(name: params[:name]);
+    @user = User.find_by(name: params[:name])
     json_response(@user)
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     head :no_content
   end
 
-# helpers
+  # helpers
   private
 
   def user_params
