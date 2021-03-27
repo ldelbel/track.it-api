@@ -1,6 +1,6 @@
 class RunningSessionsController < ApplicationController
   before_action :set_user
-  before_action :set_user_running_session, only: [:show, :update, :destroy]
+  before_action :set_user_running_session, only: %i[show update destroy]
 
   # GET /users/:user_id/running_sessions
   def index
