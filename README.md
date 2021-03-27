@@ -62,6 +62,55 @@ This project is a **Full Stack Project**, built in two parts. This repository co
 
 This application is the backend API to be used exclusively by the its counterpart on the Track.it Full Stack project. The front-end project, built with React, can be found [here](https://github.com/ldelbel/track.it)
 
+## Endpoints 
+
+<table><thead>
+<tr>
+<th>Endpoint</th>
+<th style="text-align: right">Functionality</th>
+</tr>
+</thead><tbody>
+<tr>
+<td> GET /users/</td>
+<td style="text-align: right">Get all users</td>
+</tr>
+<tr>
+<td>GET /users/:user_id</td>
+<td style="text-align: right">Get user by id</td>
+</tr>
+<tr>
+<td>GET /users/:user_id/running_sessions</td>
+<td style="text-align: right">Get running_sessions from user</td>
+</tr>
+<tr>
+<td>POST /users</td>
+<td style="text-align: right">Create user</td>
+</tr>
+<td>POST /users/:user_id/running_sessions</td>
+<td style="text-align: right">Create running_session to user</td>
+</tr>
+<tr>
+<td>PATCH  /users/:user_id</td>
+<td style="text-align: right">Edit user</td>
+</tr>
+<tr>
+<td>PATCH  /users/:user_id/running_sessions/:id</td>
+<td style="text-align: right">Edit running_session</td>
+</tr>
+<tr>
+<td>DELETE /users/:user_id</td>
+<td style="text-align: right">Delete user</td>
+</tr>
+<tr>
+<td>DELETE /users/:user_id/running_sessions/:id</td>
+<td style="text-align: right">Delete running_session</td>
+</tr>
+<tr>
+<td>GET /users/find {params: name}</td>
+<td style="text-align: right">Find User</td>
+</tr>
+</tbody></table>
+
 ### Quality Control
 
 This project was built following the rules of [Rubocop](https://rubocop.org/) and [Stylelint](https://stylelint.io/).
