@@ -36,7 +36,7 @@
 
 ## Project Briefing <a name = "brief"></a>
 
-**--This is the back-end API of a full stack project, to see the React front-end, check [here]()**
+**--This is the back-end API of a full stack project, to see the React front-end, check [here](https://github.com/ldelbel/track.it)**
 
 This project is the Final Capstone Project required for completing the Microverse Technical Curriculum [Microverse](https://www.microverse.org/).
 
@@ -54,13 +54,13 @@ The provided requirements stated that we must build the app following these guid
 - With routes for each of the screens, so the user can easily go back and forward
 - Using redux to store info used across the app, like the username
 
-This project is a **Full Stack Project**, built in two parts. This repository contains the back-end, and this [link]() will lead you to the repository where the front-end (the React interface) is.
+This project is a **Full Stack Project**, built in two parts. This repository contains the back-end, and this [link](https://github.com/ldelbel/track.it) will lead you to the repository where the front-end (the React interface) is.
 
 ## Structure and Quality Control <a name = "arch"></a>
 
 ### API Structure
 
-This application is the backend API to be used exclusively by the its counterpart on the Track.it Full Stack project. The front-end project, built with React, can be found [here]()
+This application is the backend API to be used exclusively by the its counterpart on the Track.it Full Stack project. The front-end project, built with React, can be found [here](https://github.com/ldelbel/track.it)
 
 ### Quality Control
 
