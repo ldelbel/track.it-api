@@ -14,8 +14,10 @@ class RunningSessionsController < ApplicationController
 
   # POST /users/:user_id/running_sessions
   def create
-    @user.running_sessions.create!(running_session_params)
-    json_response(@user.running_sessions.first, :created)
+    timestamp = running_session_params[:start_time].to_i / 1000
+    daily_run_id = get_dailyrun(timestamp)
+    running_session = @user.daily_runs.find(daily_run_id).running_sessions.create!(running_session_params)
+    json_response(@user.running_sessions.find(running_session.id), :created)
   end
 
   # PUT /users/:user_id/running_sessions/:id
@@ -42,5 +44,17 @@ class RunningSessionsController < ApplicationController
 
   def set_user_running_session
     @running_session = @user.running_sessions.find_by!(id: params[:id]) if @user
+  end
+
+  def get_dailyrun(timestamp)
+    today = Time.at(timestamp).strftime("%d/%m/%Y")
+    daily_run = @user.daily_runs.find_by(date: today)
+    return daily_run.id if daily_run
+    create_dailyrun(today)
+  end
+
+  def create_dailyrun(date)
+   daily_run = @user.daily_runs.create!(date: date)
+   return daily_run.id
   end
 end

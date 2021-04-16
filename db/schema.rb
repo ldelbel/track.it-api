@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_160730) do
+ActiveRecord::Schema.define(version: 2021_04_15_195841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "running_sessions", force: :cascade do |t|
+  create_table "daily_runs", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_daily_runs_on_user_id"
+  end
+
+  create_table "running_sessions", force: :cascade do |t|
+    t.bigint "daily_run_id", null: false
     t.float "distance"
     t.float "goal"
     t.bigint "start_time"
@@ -25,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_160730) do
     t.float "avg_speed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_running_sessions_on_user_id"
+    t.index ["daily_run_id"], name: "index_running_sessions_on_daily_run_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,5 +42,6 @@ ActiveRecord::Schema.define(version: 2021_03_04_160730) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "running_sessions", "users"
+  add_foreign_key "daily_runs", "users"
+  add_foreign_key "running_sessions", "daily_runs"
 end
