@@ -6,6 +6,6 @@ FactoryBot.define do
     goal { Faker::Number.number(digits: 2) }
     avg_pace { Faker::Number.number(digits: 2) }
     avg_speed { Faker::Number.number(digits: 2) }
-    association :user
+    association :daily_run
   end
 end

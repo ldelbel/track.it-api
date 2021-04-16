@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'RunningSessions', type: :request do
   let!(:user) { create(:user) }
-  let!(:running_sessions) { create_list(:running_session, 20, user_id: user.id) }
+  let!(:daily_run) { create_list(:daily_run, 1, user_id: user.id) }
+  let!(:running_sessions) { create_list(:running_session, 20, daily_run_id: daily_run.first.id) }
   let(:user_id) { user.id }
   let(:id) { running_sessions.first.id }
 
@@ -60,7 +61,7 @@ RSpec.describe 'RunningSessions', type: :request do
 
   # Test suite for PUT /users/:user_id/running_sessions
   describe 'POST /users/:user_id/running_sessions' do
-    let(:valid_attributes) { { distance: 1500 } }
+    let(:valid_attributes) { { distance: 1500, duration: 30, start_time: 128_312_983_712_8 } }
 
     context 'when request attributes are valid' do
       before { post "/users/#{user_id}/running_sessions", params: valid_attributes }
