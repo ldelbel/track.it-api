@@ -10,14 +10,19 @@
 example = User.create!(name: 'example');
 
 30.times do |i|
-    start_time = (Time.now - i.day).to_i * 1000
+    timestamp = (Time.now - i.day).to_i
+    date = Time.at(timestamp).strftime("%d/%m/%Y")
+
+    start_time = timestamp * 1000
     duration = rand(0.5..2.0).round(2)
     distance = rand(1.0..6.0).round(2)
     goal = distance + rand(0.0..1.0).round(2)
     avg_speed = (distance / duration).round(2)
     avg_pace = (duration / distance).round(2)
     
-    example.running_sessions.create!(
+    daily_run = example.daily_runs.create!(date: date)
+
+    example.daily_runs.find(daily_run.id).running_sessions.create!(
         distance: distance,
         start_time: start_time,
         duration: duration,
