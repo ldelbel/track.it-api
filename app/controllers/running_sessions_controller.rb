@@ -50,6 +50,7 @@ class RunningSessionsController < ApplicationController
     today = Time.at(timestamp).strftime('%d/%m/%Y')
     daily_run = @user.daily_runs.find_by(date: today)
     return daily_run.id if daily_run
+    
     create_dailyrun(today)
   end
 
